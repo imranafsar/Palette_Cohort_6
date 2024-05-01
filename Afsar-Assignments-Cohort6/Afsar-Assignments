@@ -1,0 +1,292 @@
+# Training 3
+## Introduction to NumPy
+NumPy (Numerical Python) is a popular library in Python that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. It is an essential tool for scientific computing and data analysis in Python.
+
+Here are some key features and benefits of NumPy:
+
+1. N-dimensional Array: NumPy's main feature is the `ndarray` (n-dimensional array) object, which allows you to efficiently store and manipulate large arrays of homogeneous data. It provides a convenient and efficient way to handle numerical data.
+
+2. Mathematical Operations: NumPy offers a wide range of mathematical functions that operate element-wise on arrays, enabling efficient numerical computations. These functions are optimized for performance and can be applied to entire arrays without the need for loops.
+
+3. Broadcasting: NumPy supports broadcasting, which is a powerful mechanism for performing operations on arrays of different shapes. Broadcasting allows you to perform arithmetic operations between arrays of different sizes, making your code more concise and efficient.
+
+4. Integration with Other Libraries: NumPy is a fundamental building block for many scientific computing and data analysis libraries in Python. It integrates seamlessly with libraries such as SciPy, Pandas, Matplotlib, and scikit-learn, forming a powerful ecosystem for data analysis, machine learning, and scientific research.
+
+5. Efficient Memory Management: NumPy arrays are stored in contiguous memory blocks, which leads to efficient memory utilization and enables faster computation. The underlying implementation of NumPy is written in C, making it highly optimized and suitable for handling large datasets.
+
+6. Array Indexing and Slicing: NumPy provides flexible indexing and slicing operations that allow you to access and modify specific elements or subsets of an array. This enables efficient data manipulation and extraction from arrays.
+
+7. Linear Algebra Operations: NumPy includes a rich set of linear algebra functions for performing matrix operations, such as matrix multiplication, matrix inversion, eigenvalues, and eigenvectors. These operations are essential for many scientific and numerical computations.
+
+NumPy is widely used in various domains, including scientific research, data analysis, machine learning, image processing, and computational physics. Its efficiency, simplicity, and powerful features make it a fundamental tool for numerical computing in Python.
+# importing numpy library
+import numpy as np 
+
+#Note that if you have not installed Numpy to your computer you cand do it by following code after # sign
+
+# pip install numpy ---> in you terminal
+# !pip install numpy ---> in jupyter cell
+#Create a 1D NumPy array:
+arr_1d = np.array([1, 2, 3, 4, 5])
+print(arr_1d)
+#Create a 2D NumPy array:
+arr_2d = np.array([[1, 2, 3], 
+                   [4, 5, 6]])
+print(arr_2d)
+# Same results but more readable
+np.array([[1, 2, 3], 
+          [4, 5, 6]])
+#Create an array of zeros:
+zeros_arr = np.zeros((2, 3))
+print(zeros_arr)
+#Create an array of ones:
+ones_arr = np.ones((3, 4))
+print(ones_arr)
+
+#Create an array with a specified range:
+range_arr = np.arange(5, 15, 2)
+print(range_arr)
+#Reshape an array:
+arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape(2, 3)
+print(reshaped_arr)
+
+#Perform element-wise operations:
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# Addition
+addition = a + b
+print(addition)
+
+# Subtraction
+subtraction = a - b
+print(subtraction)
+
+# Multiplication
+multiplication = a * b
+print(multiplication)
+
+# Division
+division = a / b
+print(division)
+
+# Exponentiation
+exponentiation = a ** b
+print(exponentiation)
+
+
+b//a 
+8 // 5
+# 1*5 +3
+#Perform matrix multiplication:
+
+mat_a = np.array([[1, 2], 
+                  [3, 4]])
+mat_b = np.array([[5, 6], 
+                  [7, 8]])
+
+mat_mult = np.dot(mat_a, mat_b)
+print(mat_mult)
+
+
+#           | a  b |   | e  f |     | ae + bg   af + bh |
+# Matrix A = |      | * |      |  =  |                    |
+#           | c  d |   | g  h |     | ce + dg   cf + dh |
+
+#Access elements by indexing:
+
+arr = np.array([1, 2, 3, 4, 5])
+# Access the first element
+first_element = arr[0]
+print(first_element)
+# Access a range of elements
+range_elements = arr[1:4] # not including last one
+print(range_elements)
+# Access elements with a step
+step_elements = arr[::2]
+print(step_elements)
+# Access elements with a step
+step_elements = arr[:2]
+print(step_elements)
+# Calculating mean
+
+arr = np.array([1, 2, 3, 4, 5])
+
+# Mean of the entire array
+mean = np.mean(arr)
+print(mean)
+
+# Mean row-wise in a 2D array
+arr_2d = np.array([[1, 2, 3], 
+                   [4, 5, 6]])
+mean_row_wise = np.mean(arr_2d, axis=1)
+print(mean_row_wise)
+
+# Mean column-wise in a 2D array
+mean_col_wise = np.mean(arr_2d, axis=0)
+print(mean_col_wise)
+# Calculating Median
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+
+# Median of the entire array
+median = np.median(arr)
+print(median)
+
+# Median row-wise in a 2D array
+arr_2d = np.array([[1, 2, 3], 
+                   [4, 5, 6]])
+median_row_wise = np.median(arr_2d, axis=1)
+print(median_row_wise)
+
+# Median column-wise in a 2D array
+median_col_wise = np.median(arr_2d, axis=0)
+print(median_col_wise)
+arr = np.array([1, 2, 3, 4, 5, 6]) # Number of elements are even
+# Median of the entire array
+median = np.median(arr)
+print(median)
+#Calculate the standard deviation:
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+
+# Standard deviation of the entire array
+std_dev = np.std(arr)
+print(std_dev)
+
+# Standard deviation row-wise in a 2D array
+arr_2d = np.array([[1, 2, 3], 
+                   [4, 5, 6]])
+std_dev_row_wise = np.std(arr_2d, axis=1)
+print(std_dev_row_wise)
+
+# Standard deviation column-wise in a 2D array
+std_dev_col_wise = np.std(arr_2d, axis=0)
+print(std_dev_col_wise)
+# Calculate the variance: # the square of std
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+
+# Variance of the entire array
+variance = np.var(arr)
+print(variance)
+
+# Variance row-wise in a 2D array
+arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+variance_row_wise = np.var(arr_2d, axis=1)
+print(variance_row_wise)
+
+# Variance column-wise in a 2D array
+variance_col_wise = np.var(arr_2d, axis=0)
+print(variance_col_wise)
+## Introduction to Pandas
+Pandas is a powerful open-source library in Python that provides high-performance data manipulation and analysis tools. It is built on top of NumPy and is widely used for tasks such as data cleaning, data preprocessing, data wrangling, and exploratory data analysis. Pandas offers two main data structures: the Series and DataFrame.
+
+Here are some key features and benefits of Pandas:
+
+1. DataFrame: The DataFrame is a 2-dimensional labeled data structure in Pandas that represents tabular data, similar to a table in a relational database or a spreadsheet. It allows you to store and manipulate structured data efficiently. DataFrames can handle heterogeneous data types and offer a wide range of operations for indexing, merging, reshaping, and aggregating data.
+
+2. Series: The Series is a one-dimensional labeled array in Pandas. It is similar to a column in a DataFrame or a labeled NumPy array. Series objects can hold any data type and provide powerful indexing capabilities. They are often used to represent a single column or a single row of data.
+
+3. Data Alignment: Pandas supports automatic data alignment during operations. When performing operations on multiple Series or DataFrames, Pandas aligns the data based on the labels, making it easy to perform calculations and manipulations across different datasets.
+
+4. Data Cleaning and Preprocessing: Pandas provides a wide range of functions and methods for cleaning and preprocessing data. It allows you to handle missing data, perform data imputation, remove duplicates, handle outliers, and perform data transformations easily.
+
+5. Data Exploration and Analysis: Pandas offers extensive functionality for exploratory data analysis. You can perform descriptive statistics, aggregations, filtering, sorting, grouping, and more. It also integrates well with other libraries for visualizations such as Matplotlib and Seaborn.
+
+6. Data Input and Output: Pandas supports reading and writing data in various file formats, including CSV, Excel, SQL databases, and more. It provides convenient functions to import and export data, making it easy to work with data from different sources.
+
+7. Integration with NumPy and Scikit-Learn: Pandas seamlessly integrates with NumPy and Scikit-Learn, enabling smooth data exchange between these libraries. It allows you to combine the power of Pandas for data manipulation with the capabilities of NumPy for efficient numerical operations and Scikit-Learn for machine learning tasks.
+
+Pandas is widely used in data analysis, data science, finance, research, and many other domains. Its intuitive and flexible API, along with its extensive set of functions and tools, make it a go-to library for working with structured data in Python.
+### ETL(Extract, Transform, Load)
+# importing pandas library
+import pandas as pd 
+
+#Note that if you have not installed Numpy to your computer you cand do it by following code after # sign
+
+# pip install pandas ---> in you terminal
+# !pip install pandas ---> in jupyter cell
+import random
+import pandas as pd
+
+# Define the range for longitude and latitude
+lon_range = (-105, -100)
+lat_range = (50, 52)
+
+# Define the list of soil types
+soil_types = ['black', 'gray', 'dark brown', 'brown', None]
+
+# Create an empty list to store the farms
+farms = []
+
+# Generate 40 farms
+for i in range(1000):
+    farm = {
+        'farm_name': f'Farm {i+1}', # f is formated string
+        'farm_lon': round(random.uniform(lon_range[0], lon_range[1]), 2), # random lon with 2 decimal points
+        'farm_lat': round(random.uniform(lat_range[0], lat_range[1]), 2), # rantom lat with 2 decimal points
+        'temperature': round(random.uniform(18, 25), 1), #random temp with 1 decimal points
+        'precipitation': round(random.uniform(20, 50), 1), # random prec with 1 decimal points
+        'soil_type': random.choice(soil_types) # random soil types from above list
+    }
+    farms.append(farm) 
+df=pd.DataFrame(farms)
+# first and last 5
+df
+# df.head first 5 rows
+df.head()
+# df.tail last 5 rows
+df.tail()
+# First 12 raws
+df.head(12)
+# Information about df and columns
+df.info()
+# choosing a column
+df[['farm_name']]
+# choosing 2 and more columns
+df[['farm_name', 'soil_type']]
+# Changin columns data types
+df['farm_name'] = df['farm_name'].astype('string')
+df['soil_type'] = df['soil_type'].astype('string')
+df.info()
+### EDA(Exploratory Data Analysis)
+df.describe().T
+# Choosing spesific columns
+df[['temperature', 'precipitation']].describe().T
+# Dropping Columns
+# df.drop(['farm_lon', 'farm_lat'], axis=1)
+df.drop(columns=['farm_lon', 'farm_lat']).describe().T
+## Matplotlib - Data Visualization
+# Importing Matplotlib
+import matplotlib.pyplot as plt
+
+# Plotting 
+df.drop(columns=['farm_lon', 'farm_lat']).describe().T\
+    .drop(columns='count')\
+    .plot(kind='bar')
+plt.title('Descriptive Statistics', color='green', fontsize=16)
+plt.xlabel('Weather', color='green',fontsize=14)
+plt.ylabel('Values', color='green', fontsize=14)
+plt.xticks(color='red', fontsize=11)
+plt.yticks(color='red')
+plt.tight_layout()
+plt.show()
+df.drop(columns=['farm_lon', 'farm_lat']).hist(bins=200)
+plt.tight_layout()
+plt.show()
+# Outlier analysis
+df.drop(columns=['farm_lon', 'farm_lat']).boxplot()
+# Drop
+# Replace with neighboring farms value
+# Replace with mean, median
+df.isna().sum().plot(kind='bar')
+plt.title('Missing Values', color='green', fontsize=16)
+plt.xlabel('Features', color='green',fontsize=14)
+plt.ylabel('# of missing values', color='green', fontsize=14)
+plt.xticks(color='red', fontsize=11)
+plt.yticks(color='red')
+plt.tight_layout()
+plt.show()
