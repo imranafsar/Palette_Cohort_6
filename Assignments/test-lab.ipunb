@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import ipywidgets as widgets
+from IPython.display import display
+
+# Generate sample data for two layers
+layer1 = np.random.rand(10, 10)
+layer2 = np.random.rand(10, 10)
+
+def update_layers(alpha):
+    fig, ax = plt.subplots()
+    ax.imshow(layer1, cmap='Blues', interpolation='none')
+    ax.imshow(layer2, cmap='Reds', interpolation='none', alpha=alpha)
+    plt.show()
+
+# Create a slider widget for alpha blending
+alpha_slider = widgets.FloatSlider(value=0.5, min=0, max=1, step=0.01, description='Alpha:')
+widgets.interactive(update_layers, alpha=alpha_slider)
+
+# Display the slider
+display(alpha_slider)
